@@ -17,11 +17,12 @@ Given a sample configuration file:
 
 To read this configuration file, do:
 
-  c, err := configfile.ReadConfigFile("config.cfg");
+  c, err := goconfig.ReadConfigFile("config.cfg");
   // result is string :http://www.example.com/some/path"
-  c.GetString("service-1", "url");
-  c.GetInt64("service-1", "maxclients"); // result is int 200
-  c.GetBool("service-1", "delegation"); // result is bool true
+
+  varurl, err := c.GetString("service-1", "url");
+  varmc, err := c.GetInt64("service-1", "maxclients"); // result is int 200
+  vardele, err := c.GetBool("service-1", "delegation"); // result is bool true
 
   // result is string "This is a multi-line\nentry"
   c.GetString("service-1", "comments");
